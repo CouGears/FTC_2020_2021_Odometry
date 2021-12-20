@@ -10,7 +10,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.teamcode.Components.Gyroscope;
 
 public class BotBase {
 
@@ -18,7 +17,7 @@ public class BotBase {
     public DcMotor rearRightDrive, rearLeftDrive, frontLeftDrive, frontRightDrive, intakeFL, shooter, arm, scissorMotor;
     private static Servo shooterServo, armServo, marker, frontScissor, backScissor;
     public static Servo armBlock;
-	public Gyroscope gyro;
+    public Gyroscope gyro;
     public static DistanceSensor topSensor, bottomSensor;
     private ElapsedTime runtime = new ElapsedTime();
     Telemetry tele;
@@ -100,7 +99,7 @@ public class BotBase {
 
         scissorMotor.setTargetPosition(0);
 		
-		gyro = hardwareMap.gyroSensor.get("gyro");
+        gyro = hardwareMap.gyroSensor.get("gyro");
 		
 
         gyro.calibrate();
@@ -109,7 +108,7 @@ public class BotBase {
         while (!gyro.isCalibrating())
         {
         }
-        gyro.resetZAxisIntegrator();O
+        gyro.resetZAxisIntegrator();
         odometry = new Odometry(frontLeftDrive,rearRightDrive,gyro,VerticalEncoderRadiusFromCenter,HorizontalEncoderRadiusFromCenter);
 
     }
